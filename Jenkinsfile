@@ -40,18 +40,14 @@ pipeline {
         }
         stage('Test') {
               steps {
-                // Запуск модульных тестов (JUnit 5) и сбор покрытия JaCoCo
                 bat '''
                     echo "Using absolute path to Maven..."
                     "C:\\Program Files\\JetBrains\\IntelliJIdea2024.2\\plugins\\maven\\lib\\maven3\\bin\\mvn.cmd" -B test
                 '''
               }
               post {
-                // Действия после стадии Test
                 always {
-                  // Публикация результатов JUnit (Surefire создаёт XML-отчёты в target/surefire-reports)
                   junit '**/target/surefire-reports/*.xml'
-
                   // Публикация HTML-отчёта JaCoCo (генерируется в target/site/jacoco/index.html)
                   // Требуется плагин HTML Publibater в Jenkins.
                   publishHTML([reportDir: 'target/site/jacoco',
