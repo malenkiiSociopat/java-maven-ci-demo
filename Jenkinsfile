@@ -23,7 +23,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: '*/${BRANCH_NAME ?: "main"}']],
                     userRemoteConfigs: [[
-                        url: 'file:///C:/repos/java-maven-ci-demo.git'
+                        url: 'https://github.com/malenkiiSociopat/java-maven-ci-demo.git'
                     ]]
                 ])
             }
