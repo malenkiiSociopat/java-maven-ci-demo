@@ -21,7 +21,7 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/${BRANCH_NAME ?: "master"}']],
+                    branches: [[name: : 'master']],
                     userRemoteConfigs: [[
                         url: 'https://github.com/malenkiiSociopat/java-maven-ci-demo.git'
                     ]]
