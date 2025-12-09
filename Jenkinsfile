@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    tools {
+            // Jenkins скачает и установит автоматически
+            jdk 'jdk17'
+            maven 'maven-3.9.6'
+        }
     options {
         timestamps()
         buildDiscarder(logRotator(numToKeepStr: '20'))
