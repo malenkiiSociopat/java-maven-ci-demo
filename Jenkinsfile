@@ -41,7 +41,10 @@ pipeline {
 
         stage('Package') {
             steps {
-                bat 'mvn -B package'
+                bat '''
+                    echo "Using absolute path to Maven..."
+                    "C:\\Program Files\\JetBrains\\IntelliJIdea2024.2\\plugins\\maven\\lib\\maven3\\bin\\mvn.cmd" -B package
+                '''
             }
             post {
                 success {
