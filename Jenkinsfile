@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     options {
         timestamps()
         buildDiscarder(logRotator(numToKeepStr: '20'))
@@ -31,9 +31,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'mvn -v'
-                bat 'mvn -B -U clean compile'
-            }
+                    bat '''
+                        echo "Using absolute path to Maven..."
+                        "C:\\Program Files\\JetBrains\\IntelliJIdea2024.2\\plugins\\maven\\lib\\maven3\\bin\\mvn.cmd" -v
+                        "C:\\Program Files\\JetBrains\\IntelliJIdea2024.2\\plugins\\maven\\lib\\maven3\\bin\\mvn.cmd" -B -U clean compile
+                    '''
+                }
         }
         stage('Test') {
             steps {
