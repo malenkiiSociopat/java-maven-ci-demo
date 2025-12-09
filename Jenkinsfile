@@ -38,7 +38,7 @@ pipeline {
                     '''
                 }
         }
-        
+
         stage('Package') {
             steps {
                 bat 'mvn -B package'
