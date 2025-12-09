@@ -50,9 +50,7 @@ pipeline {
                   junit '**/target/surefire-reports/*.xml'
                   // Публикация HTML-отчёта JaCoCo (генерируется в target/site/jacoco/index.html)
                   // Требуется плагин HTML Publibater в Jenkins.
-                  publishHTML([reportDir: 'target/site/jacoco',
-                               reportFiles: 'index.html',
-                               reportName: 'JaCoCo Coverage'])
+                  
                 }
               }
             }
